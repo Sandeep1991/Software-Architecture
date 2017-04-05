@@ -21,6 +21,12 @@ $(document).ready(
   function () {
     var canvas = document.getElementById("myChart");
     var ctx = canvas.getContext("2d");
+    ctx.canvas.width = 20;
+    ctx.canvas.height = 20;
+    var options = { 
+    responsive: true,
+    maintainAspectRatio: false
+}
     var myNewChart = new Chart(ctx, {
       type: 'pie',
       data: data
@@ -43,6 +49,8 @@ $(document).ready(
         </script>
     </head>
     <body>
+        <div style="max-width:200px; max-height:200px">
         <canvas id="myChart" width="40" height="40"></canvas>
+    </div>
     </body>
 </html>
