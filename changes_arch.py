@@ -6,21 +6,42 @@ import random as rand
 import json
 
 LINE_LIST=[]
-d={}
-with open('apache-log4j-2.5-src_deps.rsf','r') as f:  
-	for line in f:
+d1={}
+with open('apache-log4j-2.3-src_deps.rsf','r') as f1:  
+	for line in f1:
 		LINE_LIST.append(line)
 	for i in range(0,len(LINE_LIST)):
 		key=LINE_LIST[i].rstrip().split(' ')[1]
-		if key not in d:
-			d.setdefault(key,[])
+		if key not in d1:
+			d1.setdefault(key,[])
 		value=LINE_LIST[i].rstrip().split(' ')[2]
-		d[key].append(value)
-print len(d)
+		d1[key].append(value)
+print len(d1)
 print key
-print d[key]
-print len(d[key])
+print d1[key]
+print len(d1[key])
 
-target = open('output_2.5.txt', 'w')
+d2={}
+with open('apache-log4j-2.5-src_deps.rsf','r') as f2:  
+	for line in f2:
+		LINE_LIST.append(line)
+	for i in range(0,len(LINE_LIST)):
+		key=LINE_LIST[i].rstrip().split(' ')[1]
+		if key not in d2:
+			d2.setdefault(key,[])
+		value=LINE_LIST[i].rstrip().split(' ')[2]
+		d2[key].append(value)
+print len(d2)
+print key
+print d2[key]
+print len(d2[key])
+
+target = open('output_cmp.txt', 'w')
 target.truncate()
+target.write("Deletions: \n")
+for arch_class in d1:
+	if arch_class not in d2:
+		target.write(arch_class)
+	target.close()
+	
 
