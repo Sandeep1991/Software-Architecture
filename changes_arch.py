@@ -36,6 +36,7 @@ print key
 print d2[key]
 print len(d2[key])
 print "----------------------------------------------"
+del_set=set([])
 target = open('output_cmp.txt', 'w')
 target.truncate()
 target.write("Deletions: ")
@@ -44,11 +45,12 @@ target.truncate()
 for arch_class in d1:
 	if arch_class not in d2:
 		print arch_class
+		del_set.add(arch_class)
 		target.write(arch_class)
 		target.write("\n")
 		
 print "-----------------------------------------------"
-
+add_set=set([])
 target.truncate()
 target.write("Additions: ")
 target.write("\n")
@@ -56,7 +58,8 @@ target.truncate()
 for arch_class in d2:
 	if arch_class not in d1:
 		print arch_class
+		add_set.add(arch_class)
 		target.write(arch_class)
 		target.write("\n")
 	
-
+print len(add_set)
