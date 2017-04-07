@@ -3,19 +3,45 @@
         <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.2.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.js"></script>
         <script type="text/javascript">
-            var data = {
+            
+var file = "file:///C:/Users/VADHI/Desktop/Software-Architecture/check.txt";
+var ele_arr=[];
+function readTextFile(file)
+{
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", file, false);
+    rawFile.onreadystatechange = function ()
+    {
+        if(rawFile.readyState === 4)
+        {
+            if(rawFile.status === 200 || rawFile.status == 0)
+            {
+                var allText = rawFile.responseText;
+                var textByLine = allText.split("\n")
+                for(var i of textByLine)
+                {
+                    ele_arr.push(i);
+                }
+                alert(textByLine[1]);
+            }
+        }
+    }
+    rawFile.send(null);
+}
+readTextFile(file)
+console.log(ele_arr[0]);            
+            
+            
+            ///Added above
+var data = {
   datasets: [{
-    data: [300, 50, 100],
+    data: ele_arr,
     backgroundColor: [
-      "#F7464A",
-      "#46BFBD",
-      "#FDB45C"]
+      "#46BFBD","#F7464A"]
   }],
   labels: [
-    "Red",
-    "Green",
-    "Yellow"]
-};
+    "Additions",
+    "Deletions"]};
 
 $(document).ready(
   function () {
@@ -49,6 +75,8 @@ $(document).ready(
         </script>
     </head>
     <body>
+        <h1>AC/DC Visualization</h1>
+        <h2>Class additions and deletions between versions</h2>
         <div style="max-width:200px; max-height:200px">
         <canvas id="myChart" width="40" height="40"></canvas>
     </div>
