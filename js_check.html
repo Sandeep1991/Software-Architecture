@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<body>
+<meta charset="utf-8">
+<script type="text/javascript">
+var file = "file:///C:/Users/VADHI/Desktop/Software-Architecture/check.txt";
+var ele_arr=[];
+function readTextFile(file)
+{
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", file, false);
+    rawFile.onreadystatechange = function ()
+    {
+        if(rawFile.readyState === 4)
+        {
+            if(rawFile.status === 200 || rawFile.status == 0)
+            {
+                var allText = rawFile.responseText;
+                var textByLine = allText.split("\n")
+                for(var i of textByLine)
+                {
+                    ele_arr.push(i);
+                }
+                alert(textByLine[1]);
+            }
+        }
+    }
+    rawFile.send(null);
+}
+readTextFile(file)
+console.log(ele_arr[0]);
+</script>
+</body>
+</html>

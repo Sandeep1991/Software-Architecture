@@ -44,7 +44,7 @@ target.write("\n")
 target.truncate()
 for arch_class in d1:
 	if arch_class not in d2:
-		print arch_class
+		#print arch_class
 		del_set.add(arch_class)
 		target.write(arch_class)
 		target.write("\n")
@@ -57,7 +57,7 @@ target.write("\n")
 target.truncate()
 for arch_class in d2:
 	if arch_class not in d1:
-		print arch_class
+		#print arch_class
 		add_set.add(arch_class)
 		target.write(arch_class)
 		target.write("\n")
