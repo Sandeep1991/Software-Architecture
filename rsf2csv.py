@@ -29,7 +29,6 @@ target.write("\n")
 target.write('apache,')
 target.write("\n")
 target.truncate()
-m=''
 for k in d1:
 	word_d=k.replace('.','*')
 	#word_d=wrd.replace('.','*')
