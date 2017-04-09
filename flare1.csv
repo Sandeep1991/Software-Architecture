@@ -3,8 +3,10 @@ architecture,
 architecture.Appender,
 architecture.Appender.spi-Filter,100
 architecture.Appender.spi-LoggingEvent,100
-architecture.Appender.spi-ErrorHandler,100
-architecture.Appender.Layout,100
+architecture.Appender.spi-ErrorHandler,0
+architecture.Appender.Layout,0
 architecture.BasicConfigurator,
 architecture.BasicConfigurator.architecture-Appender,100
 architecture.BasicConfigurator.architecture-LogManager,100
+architecture.check,
+architecture.check.works-great,200

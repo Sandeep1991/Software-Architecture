@@ -26,7 +26,7 @@
 }
 
 </style>
-<svg width="960" height="1060"></svg>
+<svg width="10000" height="10000"></svg>
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script>
 
@@ -42,7 +42,7 @@ var tree = d3.tree()
     .size([360, 500])
     .separation(function(a, b) { return (a.parent == b.parent ? 1 : 2) / a.depth; });
 
-d3.csv("flare1.csv", function(error, data) {
+d3.csv("output_csv.csv", function(error, data) {
   if (error) throw error;
 
   var root = tree(stratify(data));
