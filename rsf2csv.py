@@ -33,15 +33,15 @@ m=''
 for k in d1:
 	word_d=k.replace('.','*')
 	#word_d=wrd.replace('.','*')
-	l='apache.'+word_d+','
-	n_l='apache.'+word_d+'.'
+	m=d1[k]
+	l='apache.'+word_d+'('+str(len(m))+'),'
+	n_l='apache.'+word_d+'('+str(len(m))+').'
 	target.write(l)
 	target.write("\n")
-	m=d1[k]
 	word_v=''
 	for j in m:
 		word_v=j
-		wvr=word_v.replace('.','-')
+		wvr=word_v.replace('.','*')
 		target.write(n_l+wvr+',100')
 		target.write("\n")
 
