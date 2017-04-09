@@ -7,7 +7,7 @@ import json
 
 LINE_LIST=[]
 d1={}
-with open('apache-log4j-2.3-src_deps.rsf','r') as f1:  
+with open('apache-log4j-2.5-src_deps.rsf','r') as f1:  
 	for line in f1:
 		LINE_LIST.append(line)
 	for i in range(0,len(LINE_LIST)):
@@ -22,7 +22,7 @@ print d1[key]
 print len(d1[key])
 
 
-target = open('output_csv.csv', 'w')
+target = open('output_csv_2.5.csv', 'w')
 target.truncate()
 target.write('id,value')
 target.write("\n")
