@@ -63,3 +63,11 @@ for arch_class in d2:
 		target.write("\n")
 	
 print len(add_set)
+for arch_class in d2:
+	if arch_class not in add_set and arch_class not in del_set:
+		k_ad=len(d2[arch_class])-len(d1[arch_class])
+		if k_ad < 0:
+			print "Dec"+arch_class,k_ad
+		#elif k_ad < 0:
+			#print "Dec"+arch_class,k_ad
+			
